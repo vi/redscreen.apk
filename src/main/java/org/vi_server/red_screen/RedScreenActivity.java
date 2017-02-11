@@ -26,11 +26,14 @@ public class RedScreenActivity extends Activity
         
         String colour = "red";
         
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            colour = extras.getString("color", colour);
-            colour = extras.getString("colour", colour);
-        }
+        try {
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                colour = extras.getString("color", colour);
+                colour = extras.getString("colour", colour);
+            }
+        } catch (NoSuchMethodError e) {}
+        
         View v = findViewById(android.R.id.content);
         v.setBackgroundColor(Color.parseColor(colour));
         
@@ -39,11 +42,13 @@ public class RedScreenActivity extends Activity
         layout.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         getWindow().setAttributes(layout);
     
-        getWindow().getDecorView().setSystemUiVisibility( 0
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION 
-            | View.SYSTEM_UI_FLAG_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            );
+        try {
+            getWindow().getDecorView().setSystemUiVisibility( 0
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                );
+        } catch (NoSuchMethodError e) {}
             
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
            | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
