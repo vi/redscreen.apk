@@ -56,6 +56,6 @@ public class RedScreenActivity extends Activity
            | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");        
+        wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "org.vi_server.red_screen:DoNotDimScreen");
     }
 }

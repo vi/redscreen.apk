@@ -1,0 +1,16 @@
+pluginManagement {
+	repositories {
+		google()
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name = 'redscreen'
+
+dependencyResolutionManagement {
+	repositories {
+		google()
+		mavenCentral()
+	}
+}
