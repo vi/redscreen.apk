@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Red Screen</string>
+    <string name="blue_shortcut_label">blue</string>
+    <string name="green_shortcut_label">green</string>
+    <string name="yellow_shortcut_label">yellow</string>
+    <string name="white_shortcut_label">white</string>
+    <string name="magenta_shortcut_label">magenta</string>
 </resources>

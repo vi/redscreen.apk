@@ -58,4 +58,10 @@ public class RedScreenActivity extends Activity
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "org.vi_server.red_screen:DoNotDimScreen");
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        this.finish();
+    }
 }

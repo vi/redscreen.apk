@@ -1,0 +1,77 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <shortcut
+    android:shortcutId="blue"
+    android:enabled="true"
+    android:icon="@drawable/blue"
+    android:shortcutShortLabel="@string/blue_shortcut_label"
+    android:shortcutLongLabel="@string/blue_shortcut_label"
+  >
+    <intent
+      android:action="android.intent.action.MAIN"
+      android:targetPackage="org.vi_server.red_screen"
+      android:targetClass="org.vi_server.red_screen.RedScreenActivity"
+    >
+        <extra android:name="colour" android:value="blue" />
+    </intent>
+  </shortcut>
+  <shortcut
+    android:shortcutId="green"
+    android:enabled="true"
+    android:icon="@drawable/green"
+    android:shortcutShortLabel="@string/green_shortcut_label"
+    android:shortcutLongLabel="@string/green_shortcut_label"
+  >
+    <intent
+      android:action="android.intent.action.MAIN"
+      android:targetPackage="org.vi_server.red_screen"
+      android:targetClass="org.vi_server.red_screen.RedScreenActivity"
+    >
+        <extra android:name="colour" android:value="green" />
+    </intent>
+  </shortcut>
+  <shortcut
+    android:shortcutId="yellow"
+    android:enabled="true"
+    android:icon="@drawable/yellow"
+    android:shortcutShortLabel="@string/yellow_shortcut_label"
+    android:shortcutLongLabel="@string/yellow_shortcut_label"
+  >
+    <intent
+      android:action="android.intent.action.MAIN"
+      android:targetPackage="org.vi_server.red_screen"
+      android:targetClass="org.vi_server.red_screen.RedScreenActivity"
+    >
+        <extra android:name="colour" android:value="yellow" />
+    </intent>
+  </shortcut>
+  <shortcut
+    android:shortcutId="white"
+    android:enabled="true"
+    android:icon="@drawable/white"
+    android:shortcutShortLabel="@string/white_shortcut_label"
+    android:shortcutLongLabel="@string/white_shortcut_label"
+  >
+    <intent
+      android:action="android.intent.action.MAIN"
+      android:targetPackage="org.vi_server.red_screen"
+      android:targetClass="org.vi_server.red_screen.RedScreenActivity"
+    >
+        <extra android:name="colour" android:value="white" />
+    </intent>
+  </shortcut>
+  <shortcut
+    android:shortcutId="magenta"
+    android:enabled="true"
+    android:icon="@drawable/magenta"
+    android:shortcutShortLabel="@string/magenta_shortcut_label"
+    android:shortcutLongLabel="@string/magenta_shortcut_label"
+  >
+    <intent
+      android:action="android.intent.action.MAIN"
+      android:targetPackage="org.vi_server.red_screen"
+      android:targetClass="org.vi_server.red_screen.RedScreenActivity"
+    >
+        <extra android:name="colour" android:value="magenta" />
+    </intent>
+  </shortcut>
+</shortcuts>
