@@ -1,0 +1,5 @@
+<i>Red Screen</i> is a simple application that renders bright red (or other solid colour) screen. It hides toolbars and cranks screen brightness to maximum.
+
+It is intended to use smartphone's screen as a makeshift signal lamp.
+
+By default it shows red screen, more colours are available as app shortcuts (long press app icon in launcher), even more when manually specifying the "colour" intent extra parameter.
