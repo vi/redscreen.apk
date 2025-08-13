@@ -15,7 +15,7 @@ android {
         applicationId "org.vi_server.red_screen"
         minSdk 16
         targetSdk 34
-        versionCode 2
+        versionCode 3
         versionName "1.2"
     }
     buildTypes {
