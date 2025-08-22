@@ -11,7 +11,7 @@ Features:
 * Overridable colour (as intent parameter)
 * Small apk size
 
-You can trigger it from console with `am start -n org.vi_server.red_screen/org.vi_server.red_screen.RedScreenActivity` command. For overriding colour use parameter like `-e colour yellow`. Some other colours (blue, green, yellow, white) are also available as shortcuts (long press app icon).
+You can trigger it from console with `am start -n org.vi_server.red_screen/org.vi_server.red_screen.RedScreenActivity` command. For overriding colour use parameter like `-e colour yellow`. Some other colours (blue, green, yellow, white) are also available as shortcuts (long press app icon). Apart from colour names, the intent parameter also accepts numeric values like `#fe00ee`.
 
 Exit with "Back" button, not with "Home" (due to brightness wakelock).
 
