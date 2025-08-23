@@ -78,7 +78,7 @@ public class RedScreenActivity extends Activity
     public void onPause() {
         wl.release();
         super.onPause();
-        this.finish();
+        this.finish(); // the cause of https://github.com/vi/redscreen.apk/issues/3
     }
 
     @Override
