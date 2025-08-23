@@ -12,6 +12,7 @@ import android.os.PowerManager;
 import android.content.Context;
 import android.util.Log;
 import android.graphics.Color;
+import android.app.KeyguardManager;
 
 public class RedScreenActivity extends Activity
 {
@@ -51,10 +52,17 @@ public class RedScreenActivity extends Activity
                 );
         } catch (NoSuchMethodError e) {}
             
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
-           | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-           | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-           | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+          KeyguardManager keyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+          keyguardManager.requestDismissKeyguard(this, null);
+          setShowWhenLocked(true);
+        } else {
+          getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+             | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+             | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+             | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+             | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        }
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "org.vi_server.red_screen:DoNotDimScreen");
