@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.content.Context;
 import android.util.Log;
 import android.graphics.Color;
@@ -16,16 +17,9 @@ import android.app.KeyguardManager;
 
 public class RedScreenActivity extends Activity
 {
-    public static Object wl;
+    public static WakeLock wl;
 
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+    private void setupColour() {
         String colour = "red";
         try {
             Bundle extras = getIntent().getExtras();
@@ -35,6 +29,17 @@ public class RedScreenActivity extends Activity
             }
         } catch (NoSuchMethodError e) {}
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor(colour)));
+    }
+
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        this.setupColour();
 
         WindowManager.LayoutParams layout = getWindow().getAttributes();
         layout.screenBrightness = 1F;
@@ -66,11 +71,19 @@ public class RedScreenActivity extends Activity
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "org.vi_server.red_screen:DoNotDimScreen");
+        wl.acquire();
     }
 
     @Override
     public void onPause() {
+        wl.release();
         super.onPause();
         this.finish();
+    }
+
+    @Override
+    public void onResume() {
+        wl.acquire();
+        super.onResume();
     }
 }
