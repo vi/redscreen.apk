@@ -1,6 +1,8 @@
 package org.vi_server.red_screen;
 
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +24,8 @@ public class RedScreenActivity extends Activity
         super.onCreate(savedInstanceState);
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.main);
-        
+
         String colour = "red";
-        
         try {
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
@@ -33,15 +33,16 @@ public class RedScreenActivity extends Activity
                 colour = extras.getString("colour", colour);
             }
         } catch (NoSuchMethodError e) {}
-        
-        View v = findViewById(android.R.id.content);
-        v.setBackgroundColor(Color.parseColor(colour));
-        
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor(colour)));
+
         WindowManager.LayoutParams layout = getWindow().getAttributes();
         layout.screenBrightness = 1F;
         layout.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            layout.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
+        }
         getWindow().setAttributes(layout);
-    
+
         try {
             getWindow().getDecorView().setSystemUiVisibility( 0
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
