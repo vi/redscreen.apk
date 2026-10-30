@@ -3,6 +3,10 @@ Red screen
 
 Just show entire red screen without any toolbars, with maximum brightness. Useful for signaling some emergency.
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+      alt="Get it on F-Droid"
+      height="70">](https://f-droid.org/packages/org.vi_server.red_screen)
+
 Features:
 
 * Hiding everything else (immersive mode)
